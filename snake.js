@@ -6,7 +6,7 @@ window.onload = () => {
 };
 
 function gameLoop() {
-    setInterval(show, 1000/20); //20 é o nosso valor de fps
+    setInterval(show, 1000/15); //15 é o nosso valor de fps
 };
 
 function show() {
@@ -47,15 +47,15 @@ function checkHitWall() {
 };
 
 function draw() {
-    createRect(0, 0, canvas.width, canvas.height, "black");
+    createRect(0, 0, canvas.width, canvas.height, "#1E1E1E");
     createRect(0, 0, canvas.width, canvas.height);
     
     for (let i = 0; i < snake.tail.length; i++) {
-        createRect(snake.tail[i].x + 2.5, snake.tail[i].y + 2.5, snake.size - 5, snake.size - 5, "white");
+        createRect(snake.tail[i].x + 2.5, snake.tail[i].y + 2.5, snake.size - 5, snake.size - 5, "#D4D4B1");
     };
 
     canvasContext.font = "20px Arial";
-    canvasContext.fillStyle = "#00FF42";
+    canvasContext.fillStyle = "#449083";
     canvasContext.fillText("Score: " + (snake.tail.length - 1), canvas.width - 120, 18);
     createRect(apple.x, apple.y, apple.size, apple.size, apple.color);
 };
@@ -111,7 +111,7 @@ class Snake {
                 x: this.tail[this.tail.length - 1].x,
                 y: this.tail[this.tail.length - 1].y + this.size
             };
-        } else if(this.rotateX == -1) {
+        } else if(this.rotateY == -1) {
             newRect = {
                 x: this.tail[this.tail.length - 1].x,
                 y: this.tail[this.tail.length - 1].y - this.size
@@ -140,7 +140,7 @@ class Apple {
             };
 
             this.size = snake.size;
-            this.color = "red";
+            this.color = "#CE2D21";
 
             if (!isTouching) {
                 break;
