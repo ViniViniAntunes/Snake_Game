@@ -149,8 +149,6 @@ class Apple {
     };
 };
 
-
-
 const snake = new Snake(20, 20, 20);
 
 let apple = new Apple();
